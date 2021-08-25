@@ -1,4 +1,7 @@
 {% url 'cities:home' as cities_home_url %}
+{% url 'trains:home' as trains_home_url %}
+{% url 'trains:create' as trains_create_url %}
+{% url 'cities:create' as cities_create_url %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,7 +14,8 @@
           rel="stylesheet"
           integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
           crossorigin="anonymous">
-
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+          rel="stylesheet"/>
     <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
@@ -28,29 +32,35 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {% if request.path == cities_home_url %}                     active {% endif %}"
+                    <a class="nav-link {% if request.path == cities_home_url %} active {% endif %}"
                        aria-current="page"
                        href="{% url 'cities:home' %}">Города </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link {% if request.path == trains_home_url %} active {% endif %}"
+                       href="{% url 'trains:home' %}">Поезда</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Pricing</a>
                 </li>
+
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#"
-                       id="navbarDropdownMenuLink" role="button"
+                    <a class="nav-link dropdown-toggle
+                        {% if request.path == trains_create_url or request.path == cities_create_url %}
+                        active
+                        {% endif %}"
+                       href="#" id="navbarDropdownMenuLink" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown link
+                        Добавить
                     </a>
                     <ul class="dropdown-menu"
                         aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another
-                            action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else
-                            here</a></li>
+                        <li><a class="dropdown-item"
+                               href="{% url 'cities:create' %}">Новый город</a>
+                        </li>
+                        <li><a class="dropdown-item"
+                               href="{% url 'trains:create' %}">Новый поезд</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -92,15 +102,23 @@
 <!-- Optional JavaScript; choose one of the two! -->
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
         crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <!-- Option 2: Separate Popper and Bootstrap JS -->
 <!--
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 -->
+<script>
+    $(document).ready(function () {
+        $('.js-example-basic-single').select2();
+        $('.js-example-basic-multiple').select2();
+    });
+</script>
 </body>
 </html>
 
