@@ -1,12 +1,18 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, DeleteView
 
 from cities.models import City
 from routes.forms import RouteForm, RouteModelForm
+from routes.models import Route
 from routes.utils import get_routes
 from trains.models import Train
 
 
+# @login_required
 def home(request):
     form = RouteForm
     return render(request, 'routes/home.html', {'form': form})
@@ -46,8 +52,8 @@ def add_route(request):
         form = RouteModelForm(
             initial={
                 'from_city': cities[from_city_id],
-                'from_city': cities[from_city_id],
-                'travel_time': total_time,
+                'to_city': cities[to_city_id],
+                'travel_times': total_time,
                 'trains': qs
             }
         )
@@ -70,3 +76,24 @@ def save_route(request):
     else:
         messages.error(request, 'Невозможно сохранить несуществующий маршрут')
         return redirect('/')
+
+
+class RouteListView(ListView):
+    paginate_by = 5
+    model = Route
+    template_name = 'routes/list.html'
+
+
+class RouteDetailView(DetailView):
+    queryset = Route.objects.all()
+    template_name = 'routes/detail.html'
+
+
+class RouteDeleteView(LoginRequiredMixin, DeleteView):
+    model = Route
+    success_url = reverse_lazy('home')
+
+    def get(self, request, *args, **kwargs):
+        messages.success(request, 'Маршурт успешно удалён')
+        return self.post(request, *args, **kwargs)
+
