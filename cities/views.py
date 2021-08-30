@@ -48,7 +48,7 @@ class CityCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = City
     form_class = CityForm
     template_name = 'cities/create.html'
-    success_url = reverse_lazy('trains:home')
+    success_url = reverse_lazy('cities:create')
     success_message = "Город успешно создан"
 
 
@@ -71,7 +71,7 @@ class CityDeleteView(LoginRequiredMixin, DeleteView):
 
 
 class CityListView(ListView):
-    paginate_by = 2
+    paginate_by = 8
     model = City
     template_name = 'cities/home.html'
 

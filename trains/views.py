@@ -41,7 +41,7 @@ class TrainCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Train
     form_class = TrainForm
     template_name = 'trains/create.html'
-    success_url = reverse_lazy('trains:home')
+    success_url = reverse_lazy('trains:create')
     success_message = "Поезд успешно создан"
 
 
