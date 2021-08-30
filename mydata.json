@@ -1,0 +1,226 @@
+[
+{
+  "model": "cities.city",
+  "pk": 2,
+  "fields": {
+    "name": "Moscow"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 4,
+  "fields": {
+    "name": "Khimki"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 15,
+  "fields": {
+    "name": "Pushkin"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 16,
+  "fields": {
+    "name": "Tver"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 17,
+  "fields": {
+    "name": "Alexandrov"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 18,
+  "fields": {
+    "name": "Mychischi"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 19,
+  "fields": {
+    "name": "Klin"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 20,
+  "fields": {
+    "name": "Saint-Peterburg"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 21,
+  "fields": {
+    "name": "Krasnogorsk"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 22,
+  "fields": {
+    "name": "Cheboksary"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 23,
+  "fields": {
+    "name": "Kazan"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 24,
+  "fields": {
+    "name": "Yaroslavl"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 25,
+  "fields": {
+    "name": "Zelenograd"
+  }
+},
+{
+  "model": "routes.route",
+  "pk": 4,
+  "fields": {
+    "name": "Tver : Pushkin",
+    "travel_times": 120,
+    "from_city": 16,
+    "to_city": 15,
+    "trains": [
+      17
+    ]
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 9,
+  "fields": {
+    "name": "Mos : Zel",
+    "travel_time": 45,
+    "from_city": 2,
+    "to_city": 25
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 10,
+  "fields": {
+    "name": "Mos : Khim",
+    "travel_time": 30,
+    "from_city": 2,
+    "to_city": 4
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 11,
+  "fields": {
+    "name": "Mos : Tvr",
+    "travel_time": 75,
+    "from_city": 2,
+    "to_city": 16
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 12,
+  "fields": {
+    "name": "Mos : Kln",
+    "travel_time": 100,
+    "from_city": 2,
+    "to_city": 19
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 13,
+  "fields": {
+    "name": "Mos : Krasn",
+    "travel_time": 25,
+    "from_city": 2,
+    "to_city": 21
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 14,
+  "fields": {
+    "name": "Mos : Kzn",
+    "travel_time": 640,
+    "from_city": 2,
+    "to_city": 23
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 15,
+  "fields": {
+    "name": "Mos : Yrsl",
+    "travel_time": 240,
+    "from_city": 2,
+    "to_city": 24
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 16,
+  "fields": {
+    "name": "Mos : Myt",
+    "travel_time": 30,
+    "from_city": 2,
+    "to_city": 18
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 17,
+  "fields": {
+    "name": "Mos : Push",
+    "travel_time": 45,
+    "from_city": 2,
+    "to_city": 15
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 18,
+  "fields": {
+    "name": "Khm : Mos",
+    "travel_time": 30,
+    "from_city": 4,
+    "to_city": 2
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 19,
+  "fields": {
+    "name": "Tvr : Mos",
+    "travel_time": 75,
+    "from_city": 16,
+    "to_city": 2
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 20,
+  "fields": {
+    "name": "Zel : Mos",
+    "travel_time": 45,
+    "from_city": 25,
+    "to_city": 2
+  }
+}
+]
