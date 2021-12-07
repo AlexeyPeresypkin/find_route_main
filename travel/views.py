@@ -9,3 +9,4 @@ from django.shortcuts import render
 # def about(request):
 #     name = 'About us'
 #     return render(request, 'about.html', {'name': name})
+
